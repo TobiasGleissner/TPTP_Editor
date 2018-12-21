@@ -1,0 +1,19 @@
+{% extends 'editor/shrinked_modal_base.html' %}
+{% block content %}
+<div id="filebrowser_delete_directory_modal">
+    <div class="shrinked_modal_header">
+        <p class="shrinked_modal_heading">Delete Directory</p>
+    </div>
+
+    <div class="shrinked_modal_content">
+        <p id="filebrowser_delete_directory_warning_text" class="label"></p>
+    </div>
+
+    <div class="shrinked_modal_footer">
+        <div id="shrinked_modal_footer_buttons">
+            <button class="button" onclick="modals.delete_directory.button_delete()">Delete</button>
+            <button class="button" onclick="modals.delete_directory.button_cancel()">Cancel</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

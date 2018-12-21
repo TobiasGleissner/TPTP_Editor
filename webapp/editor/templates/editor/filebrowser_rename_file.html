@@ -1,0 +1,19 @@
+{% extends 'editor/shrinked_modal_base.html' %}
+{% block content %}
+<div id="filebrowser_rename_file_modal">
+    <div class="shrinked_modal_header">
+        <p class="shrinked_modal_heading">Rename File</p>
+    </div>
+    <div class="shrinked_modal_content">
+        <p class="label">Enter a new file name:</p>
+        <input id="filebrowser_rename_file_input_file" class="text_input" type='text' />
+    </div>
+
+    <div class="shrinked_modal_footer">
+        <div id="shrinked_modal_footer_buttons">
+            <button class="button" onclick="modals.rename_file.button_ok()">Ok</button>
+            <button class="button" onclick="modals.rename_file.button_cancel()">Cancel</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

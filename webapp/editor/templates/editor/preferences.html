@@ -1,0 +1,25 @@
+<div id="preferences_modal_container" class="modal_container">
+    <div id="preferences_innerwindow" class="modal_innerwindow">
+        <div id="preferences_upperpart">
+            <div class="preferences_column" id="preferences_sidekick">
+                <div id="preferences_tree"></div>
+            </div>
+            <div id="preferences_content_container">
+                {% load static %}
+                {% include 'editor/preferences_main.html' %}
+                {% include 'editor/preferences_provers.html' %}
+                {% include 'editor/preferences_local_prover.html' %}
+                {% include 'editor/preferences_local_prover_disabled.html' %}
+                {% include 'editor/preferences_embedding.html' %}
+            </div>
+        </div>
+
+        <div id="preferences_footer">
+            <div id="preferences_footer_buttons">
+                <button class="button" onclick="preferences.button_ok()">OK</button>
+                <button class="button" onclick="preferences.button_apply()">Apply</button>
+                <button class="button" onclick="preferences.button_cancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

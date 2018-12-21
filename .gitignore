@@ -1,0 +1,18 @@
+build
+build/*
+./build
+./build*
+bin
+bin/*
+./bin
+./bin*
+webapp/editor/migrations
+
+# misc
+idea
+.idea
+.idea/*
+*.iml
+*.pyc
+*.DS_Store
+*.sqlite3

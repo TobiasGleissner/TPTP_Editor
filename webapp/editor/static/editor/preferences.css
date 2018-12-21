@@ -1,0 +1,157 @@
+/* container and background */
+
+
+/* container of all things displayed */
+
+
+/* container for sidekick and content */
+#preferences_upperpart:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* container for sidekick */
+#preferences_sidekick {
+    float:left;
+    width:30%;
+    padding:5px;
+}
+
+/* container for actual preferences content */
+#preferences_content_container {
+    float:left;
+    width:70%;
+    padding:5px;
+}
+/* container for ok/apply/cancel buttons */
+#preferences_footer {
+    width:100%;
+    padding:5px;
+}
+
+#preferences_footer_buttons {
+    float:right;
+}
+
+.preferences_content_hidden {
+    display: none;
+}
+
+.preferences_content_selected {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+/* LOCAL PROVER */
+/* toplevel layout: sidekick + configuration window */
+#preferences_local_prover_sidekick {
+    float:left;
+    width:30%;
+}
+#preferences_local_prover_configuration {
+    float:left;
+    width:70%;
+    padding-left:10px;
+}
+
+/* sidekick */
+#preferences_local_prover_sidekick_header:after {
+    content: "";
+    display: table;
+    clear: both;
+    width:100%;
+}
+#preferences_local_prover_sidekick_selection_list_container {
+    padding-top:0.3em;
+}
+#preferences_local_prover_sidekick_selection_list_container:after {
+    content: "";
+    display: table;
+    clear: both;
+    width:100%;
+}
+#preferences_local_prover_sidekick_selection_list {
+    width:100%;
+}
+/* configuration window */
+#preferences_local_prover_configuration_dialect_list_container {
+    width:100%;
+}
+/* configuration window - sidekick */
+#preferences_local_prover_configuration_dialect_list_sidekick {
+    float:left;
+    width:15%;
+    padding-left:10px;
+}
+#preferences_local_prover_configuration_dialect_list_autodetect_container:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+/* configuration window - command */
+#preferences_local_prover_configuration_command {
+    float:left;
+    width:85%;
+}
+
+
+
+
+/* EMBEDDING */
+/* toplevel layout: sidekick + configuration window */
+#preferences_embedding_sidekick {
+    float:left;
+    width:30%;
+}
+#preferences_embedding_configuration {
+    float:left;
+    width:70%;
+    padding-left:10px;
+}
+
+/* sidekick */
+#preferences_embedding_sidekick_header:after {
+    content: "";
+    display: table;
+    clear: both;
+    width:100%;
+}
+#preferences_embedding_sidekick_selection_list_container {
+    padding-top:0.3em;
+}
+#preferences_embedding_sidekick_selection_list_container:after {
+    content: "";
+    display: table;
+    clear: both;
+    width:100%;
+}
+#preferences_embedding_sidekick_selection_list {
+    width:100%;
+}
+#preferences_embedding_configuration_header:after {
+    content: "";
+    display: table;
+    clear: both;
+    width:100%;
+}
+#preferences_embedding_configuration_footer {
+    width:100%;
+}
+
+
+
+
+.preferences_input {
+    width:100%;
+    float:left;
+    margin-bottom:10px;
+}

@@ -1,0 +1,34 @@
+<div id="preferences_embedding" class="preferences_content preferences_content_hidden">
+    <div id="preferences_embedding_sidekick">
+        <div id="preferences_embedding_sidekick_header">
+        <button class="button" id="preferences_embedding_add" onclick="preferences.embedding.add()">Add</button>
+        <button class="button" id="preferences_embedding_remove" onclick="preferences.embedding.remove()">Remove</button>
+        <button class="button" id="preferences_embedding_up" onclick="preferences.embedding.moveup()">Up</button>
+        <button class="button" id="preferences_embedding_down" onclick="preferences.embedding.movedown()">Down</button>
+        </div>
+        <div id="preferences_embedding_sidekick_selection_list_container" onkeyup="preferences.embedding.on_embedding_list_key(event)">
+            <select id="preferences_embedding_sidekick_selection_list" size="4">
+            </select>
+        </div>
+    </div>
+    <div id="preferences_embedding_configuration">
+        <div id="preferences_embedding_configuration_header">
+            <p class="label">embedding configuration name</p>
+            <input id="preferences_embedding_name" class="text_input preferences_input" oninput='preferences.embedding.on_name_change(event)' type='text' />
+            <p class="label">constants</p>
+            <input id="preferences_embedding_constants" class="text_input preferences_input" oninput='preferences.embedding.on_constants_change(event)' type='text' />
+            <p class="label">domains</p>
+            <input id="preferences_embedding_domain" class="text_input preferences_input" oninput='preferences.embedding.on_domain_change(event)' type='text' />
+            <p class="label">consequence</p>
+            <input id="preferences_embedding_consequence" class="text_input preferences_input" oninput='preferences.embedding.on_consequence_change(event)' type='text' />
+            <p class="label">modalities</p>
+            <input id="preferences_embedding_modalities" class="text_input preferences_input" oninput='preferences.embedding.on_modalities_change(event)' type='text' />
+            <p class="label">embedding tool parameters</p>
+            <input id="preferences_embedding_parameters" class="text_input preferences_input" oninput='preferences.embedding.on_parameters_change(event)' type='text' />
+        </div>
+        <div id="preferences_embedding_configuration_footer">
+            <button class="button" id="preferences_embedding_validate" onclick="preferences.embedding.validate_()">Validate</button>
+            <button class="button" id="preferences_embedding_export" onclick="preferences.embedding.export()">Export</button>
+        </div>
+    </div>
+</div>

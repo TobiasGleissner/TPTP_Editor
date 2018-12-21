@@ -1,0 +1,91 @@
+1. Install Python 3.x
+
+2. Install Django via Terminal
+
+pip3 install django
+
+3. Setup Django Project
+
+browse towards desired project location in file system
+
+django-admin startproject <project-name>
+
+4. Migrate into Project before testing start serverapp
+
+browse towards project location
+
+python3.x manage.py migrate
+
+5. Test server app
+
+python3.x manage.py runserver
+
+open browser
+
+go to 127.0.0.1:8000
+
+6. Troubleshoot errors if needed
+
+debug is enabled on default and should express its desired solution in an understanding fashion
+
+7. Split site apps in modules
+
+end running serverapp if needed
+
+python3.x manage.py startapp <appname>
+
+8. Set environment variables to bind created app
+
+browse towards <projectroot>/<projectname>/
+
+open settings.py in editor
+
+go to "Installed Apps" and add the name of your created app there in simple parantheses and comma at the end
+
+9. Enter the app into the url environment in order to make it available
+
+open the file <projectroot>/<projectname>/urls.py
+
+add another entry into the "urlpatterns" array
+
+add the app via include
+
+add: "url(r'<appname>/', include('<appname>/urls')
+
+edit first line django.conf.urls import urls, include
+
+10. create urls.py in app folder
+
+browse into appfolder
+
+create urls.py
+
+open the file
+
+paste content into it:
+from django.conf.urls import url
+
+from . import views
+
+urlpatterns = [
+    url(r'^$', views.index)
+]
+
+save the file
+
+11. create the content within the index function
+
+browse into the app folder
+
+open views.py with an editor
+
+insert:
+def index(request):
+    return render(request, 'index/index.html')
+
+12. create an index.html file with some content
+
+!!! it is
+
+
+

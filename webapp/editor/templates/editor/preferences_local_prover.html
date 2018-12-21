@@ -1,0 +1,39 @@
+<div id="preferences_local_prover" class="preferences_content preferences_content_hidden">
+    <div id="preferences_local_prover_sidekick">
+        <div id="preferences_local_prover_sidekick_header">
+        <button class="button" id="preferences_local_prover_add" onclick="preferences.local_prover.add()">Add</button>
+        <button class="button" id="preferences_local_prover_remove" onclick="preferences.local_prover.remove()">Remove</button>
+        <button class="button" id="preferences_local_prover_up" onclick="preferences.local_prover.moveup()">Up</button>
+        <button class="button" id="preferences_local_prover_down" onclick="preferences.local_prover.movedown()">Down</button>
+        </div>
+        <div id="preferences_local_prover_sidekick_selection_list_container" onkeyup="preferences.local_prover.on_prover_list_key(event)">
+            <select id="preferences_local_prover_sidekick_selection_list" size="4">
+            </select>
+        </div>
+    </div>
+    <div id="preferences_local_prover_configuration">
+        <div id="preferences_local_prover_configuration_command">
+            <p class="label">prover name</p>
+            <input id="preferences_local_prover_name" class="text_input preferences_input" oninput='preferences.local_prover.on_name_change(event)' type='text' />
+            <p class="label">local prover binary</p>
+            <input id="preferences_local_prover_command" class="text_input preferences_input" oninput='preferences.local_prover.on_cmd_change(event)' type='text' />
+            <p class="label">parameters, %s indicates where the filename should be inserted, %d indicates where the timeout should be inserted</p>
+            <input id="preferences_local_prover_parameters" class="text_input preferences_input" oninput='preferences.local_prover.on_params_change(event)' type='text' />
+            <!--<button onclick="notimplemented()">Test configuration</button>-->
+        </div>
+        <div id="preferences_local_prover_configuration_dialect_list_sidekick">
+            <!--<div id="preferences_local_prover_configuration_dialect_list_autodetect_container">
+                <button id="preferences_local_prover_configuration_dialect_list_autodetect" onclick="notimplemented()">Auto Detect</button>
+            </div>-->
+            <div multiple id="preferences_local_prover_configuration_dialect_list" class="multi_switch_container" size="7">
+                <p onclick="preferences.local_prover.on_dialect_click(event)" class="multi_switch">CNF</p>
+                <p onclick="preferences.local_prover.on_dialect_click(event)" class="multi_switch">FOF</p>
+                <p onclick="preferences.local_prover.on_dialect_click(event)" class="multi_switch">TF0</p>
+                <p onclick="preferences.local_prover.on_dialect_click(event)" class="multi_switch">TF1</p>
+                <p onclick="preferences.local_prover.on_dialect_click(event)" class="multi_switch">TFX</p>
+                <p onclick="preferences.local_prover.on_dialect_click(event)" class="multi_switch">TH0</p>
+                <p onclick="preferences.local_prover.on_dialect_click(event)" class="multi_switch">TH1</p>
+            </div>
+        </div>
+    </div>
+</div>

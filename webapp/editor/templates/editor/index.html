@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+<meta charset="UTF-8">
+
+<!-- here come the static links and urls used somewhere in separate .js files -->
+<script>
+    // django routing urls
+    var control_url = "control/";
+    var url_tptp_worker = "{% static 'editor_component/tptp-worker.js' %}";
+    var url_logout = "{% url 'logout' %}"
+</script>
+
+<!-- external software -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!-- static scripts -->
+<script src="{% static 'editor/output.js' %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static 'editor/user.js' %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static 'editor/editor.js' %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static 'editor/filesystem.js' %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static 'editor/preferences.js' %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static 'editor/external_tools.js' %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static 'editor/ui-elements.js' %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static 'editor/index.js' %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static 'editor_component/ace-builds-src-noconflict/ace.js' %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static 'editor_component/mode-tptp.js' %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static 'fancytree/dist/jquery.fancytree-all.js' %}" type="text/javascript" charset="utf-8"></script>
+
+<!-- static css -->
+<link rel="stylesheet" type="text/css" href="{% static 'editor/index.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'editor/preferences.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'editor/directorypicker.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'editor/ui-elements.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'fancytree/dist/skin-win8/ui.fancytree.min.css' %}">
+
+</head>
+{% csrf_token %}
+
+<body>
+    <div id="wrapper">
+        <div id="header_container">
+            <!-- menu -->
+
+            <div id="menu_container">
+                <div id="main_menu_container">
+                    <ul id="main_menu" class="menu_ul">
+                        <li class="menu_entry_toplevel"><a href="javascript:void(0)" class="menu_entry_toplevel_label">File</a>
+                            <div class="menu_dropdown_container">
+                                <!--<a id="new_file_link" onclick="menu.file.new" href="#">New File</a>
+                                <a id="open_file_link" onclick="open_file_menu()" href="#">Open File</a>
+                                <input type="file" id="menu_openfile_input" class="openfileinput" />
+                                <a href="#">Reopen File</a> -->
+                                <a onclick="menu.file.open_home_directory()">Open Home Directory</a>
+                                <a onclick="menu.file.open_directory()">Open Directory</a>
+                                <a onclick="menu.file.save()">Save</a>
+                                <!--<a onclick="menu.file.open_directory()">Save as</a> -->
+                                <a onclick="menu.file.export()">Export</a>
+                                <a onclick="menu.file.preferences()">Preferences</a>
+                                <!--<a onclick="menu.file.open_directory()">Close</a> -->
+                            </div>
+                        </li>
+                        <!-- not for now
+                        <li><a>Edit</a>
+                            <div class="menu_dropdown">
+                                <a href="#">Revert</a>
+                                <a href="#">Redo</a>
+                                <a href="#">Cut</a>
+                                <a hre2f="#">Copy</a>
+                                <a href="#">Paste</a>
+                            </div>
+                        </li>
+                        -->
+                        <!--
+                        <li class="menu_entry_toplevel"><a href="javascript:void(0)" class="menu_entry_toplevel_label">View</a>
+                            <div class="menu_dropdown_container">
+                                <a href="#">Increase Font Size</a>
+                                <a href="#">Decrease Fonts Size</a>
+                                <a href="#">Default Font Size</a>
+                                <a href="#">Enter Presentation Mode</a>
+                            </div>
+                        </li>
+                        -->
+                        <li class="menu_entry_toplevel"><a href="javascript:void(0)" class="menu_entry_toplevel_label">Help</a>
+                            <div class="menu_dropdown_container">
+                                <a onclick="menu.help.about()" href="#">About</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                {% if username %}
+                <div id="user_container">
+                    <ul class="menu_ul">
+                        <li class="menu_entry_toplevel">
+                            <a onclick="menu.user()" class="menu_entry_toplevel_label">{{ username }}</a>
+                        </li>
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- toolbar -->
+            <div id="toolbars_container">
+
+                <!-- prover -->
+                <div class="toolbar_container">
+                    <ul class="toolbar_ul">
+                        <li class="toolbar_entry_wrapper">
+                            <select id="toolbar_embedding_select" class="custom-select"></select>
+                            <span>|</span>
+                            <select id="toolbar_prover_select" class="custom-select"></select>
+                            <input id="toolbar_prover_timeout" class="text_input" type='text' value="60" />
+                            <button id="toolbar_prover_run" class="button" onclick="toolbar.prover.run()">Run</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="main_container">
+
+            <!-- sidekick -->
+            <div id="left_container">
+                <div id="left_sidekick_content">
+                    <!-- File Browser Tree view -->
+                    <div id="sidekick_filebrowser_content">
+                        <!--<div id="file_browser"></div> -->
+                    </div>
+                </div>
+            </div>
+            <!-- dragbar left -->
+            <a href="javascript:void(0)" id="dragbar_left" class="dragbar_vertical"></a>
+            <!-- middle container -->
+
+            <div id="middle_container">
+                    <!-- editor -->
+                <div id="myeditor"></div>
+            </div>
+            <!--<div id="right_sidekick_container"></div>-->
+        </div>
+
+        <!-- dragbar left -->
+        <a href="javascript:void(0)" id="dragbar_footer" class="dragbar_horizontal"></a>
+        <!-- output -->
+        <div class="task" id="footer_container">
+            <ul id="output"></ul>
+        </div>
+
+    </div>
+    <!-- includes for modals and other windows -->
+    {% include 'editor/preferences.html' %}
+    {% include 'editor/about.html' %}
+    {% include 'editor/directorypicker.html' %}
+    {% include 'editor/user.html' %}
+    {% include 'editor/filebrowser_create_file.html' %}
+    {% include 'editor/filebrowser_create_directory.html' %}
+    {% include 'editor/filebrowser_delete_directory.html' %}
+    {% include 'editor/filebrowser_rename_directory.html' %}
+    {% include 'editor/filebrowser_delete_file.html' %}
+    {% include 'editor/filebrowser_rename_file.html' %}
+
+
+    <!-- context menus -->
+    <!--
+    <nav id="context-menu" class="context-menu">
+        <ul class="context-menu__items">
+          <li class="context-menu__item">
+            <a href="#" class="context-menu__link" data-action="View"><i class="fa fa-eye"></i> View Task</a>
+          </li>
+          <li class="context-menu__item">
+            <a href="#" class="context-menu__link" data-action="Edit"><i class="fa fa-edit"></i> Edit Task</a>
+          </li>
+          <li class="context-menu__item">
+            <a href="#" class="context-menu__link" data-action="Delete"><i class="fa fa-times"></i> Delete Task</a>
+          </li>
+        </ul>
+      </nav>
+      -->
+</body>
+

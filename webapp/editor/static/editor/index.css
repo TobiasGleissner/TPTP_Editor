@@ -1,0 +1,311 @@
+/* color scheme */
+:root {
+    /*
+    --main-background-color: #333;
+    --main-background-color-second-order: #666;
+    --main-font-color:white;
+    --main-font-color-selected:orange;
+    --main-ui-elements-color: grey;
+    --main-ui-elements-color-selected: #f9f9f9;
+*/
+    --main-background-color: #FFFFFF;
+    --main-background-color-secondary: #F6F7F9; /*#F6F7F9;*/
+    --main-background-color-secondary-selected: #3E79D2;
+    --main-background-color-tertiary: #fcfcfc;
+    --main-background-color-tertiary-selected: #3E79D2;
+    --title-background-color: #00117f;
+    --title-font-color: white;
+    --main-font-color:black;
+    --main-font-color-selected:white;
+    --main-border-color: #B1B1B1;
+    --button-border-color: var(--main-border-color);
+
+    /* menu */
+    --menu-background-color: var(--main-background-color-secondary);
+    --menu-background-color-selected: var(--main-background-color-secondary-selected);
+    --menu-font-color: var(--main-font-color);
+    --menu-font-color-selected: var(--main-font-color-selected);
+    --submenu-background-color: var(--main-background-color-secondary);
+    --submenu-background-color-selected: var(--main-background-color-secondary-selected);
+    --submenu-container-border-color: var(--main-border-color);
+    --submenu-font-color: var(--main-font-color);
+    --submenu-font-color-selected: var(--main-font-color-selected);
+
+    /* context menu */
+    --context-menu-background-color: var(--main-background-color-secondary);
+    --context-menu-background-color-selected: var(--main-background-color-secondary-selected);
+    --context-menu-container-border-color: var(--main-border-color);
+    --context-font-color: var(--main-font-color);
+    --context-menu-font-color-selected: var(--main-font-color-selected);
+
+    /* toolbar */
+    --toolbar-background-color: var(--main-background-color-secondary);
+    --toolbar-prover-dropdown-background-color: var(--main-background-color-secondary);
+    --toolbar-prover-dropdown-font-color: var(--main-font-color);
+    --toolbar-prover-timeout-background-color: var(--main-background-color-secondary);
+    --toolbar-prover-timeout-font-color: var(--main-font-color);
+    --toolbar-prover-run-color: var(--main-font-color); /* as button there should be an icon instead of text */
+    --toolbar-prover-select-border-color: var(--main-border-color);
+    --toolbar-prover-timeout-border-color: var(--main-border-color);
+
+    /* sidekick left */
+    --sidekick_background-color: var(--main-background-color);
+
+    /* footer */
+    --footer-background-color: var(--main-background-color);
+    --footer-szs-status-color: purple;
+
+    /* misc */
+    --dragbar-color: var(--main-border-color);
+
+    /* modals */
+    --modal-container-background-color: rgba(0,0,0,0.7);
+    --modal-container-background-color-fallback: red;
+    --modal-background-color: var(--main-background-color-secondary);
+}
+
+/* MISC */
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    /* font-family: "Courier New", Courier, monospace; */
+    /* font-size: 13px; */
+    /*line-height: 15px;*/
+    /* font-weight: normal; */
+    /*font-style: normal; */
+}
+#wrapper {
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    overflow: hidden; /* cuts overflow content and removes browser scrollbars */
+}
+/* MENU */
+#header_container {
+    display: inline-block;
+    clear: both;
+    width: 100%;
+    position: relative;
+}
+#menu_container {
+    display: inline-block;
+    clear: both;
+    width: 100%;
+    vertical-align: top;
+    border-bottom: solid var(--main-border-color) 1px;
+    background-color: var(--menu-background-color);
+}
+#main_menu_container {
+    display:inline-block;
+    float:left;
+}
+#user_container {
+    display:inline-block;
+    float:right;
+}
+
+
+/* TOOLBAR */
+.toolbar_container {
+    vertical-align: top;
+    width: 100%;
+    display:inline-block;
+    clear:both;
+    background: var(--toolbar-background-color);
+    border-bottom: solid var(--main-border-color) 1px;
+}
+.toolbar_ul {
+    list-style-type: none;
+}
+.toolbar_entry_wrapper {
+    float: right;
+    padding: 0.3em;
+}
+#toolbar_prover_select {
+    background-color: var(--toolbar-prover-dropdown-background-color);
+    color: var(--toolbar-prover-dropdown-font-color);
+    height: 1.5em;
+    border: solid var(--toolbar-prover-select-border-color) 1px;
+}
+#toolbar_embedding_select {
+    background-color: var(--toolbar-prover-dropdown-background-color);
+    color: var(--toolbar-prover-dropdown-font-color);
+    height: 1.5em;
+    border: solid var(--toolbar-prover-select-border-color) 1px;
+}
+#toolbar_prover_timeout {
+    background-color: var(--toolbar-prover-timeout-background-color);
+}
+#toolbar_prover_timeout  {
+    width: 3em;
+    text-align: right;
+}
+
+/*
+#toolbar_prover_run {
+    background-color: var(--toolbar-background-color);
+    color: var(--toolbar-prover-run-color);
+}*/
+/* CONTENT - GENERAL */
+#main_container {
+    display:block;
+    position:relative;
+    width: 100%;
+    height: 500px;
+    clear: both;
+    background: azure;
+}
+
+/* CONTENT - LEFT SIDEKICK */
+#left_container {
+    position:absolute;
+    left:0;
+    top:0;
+    float: left;
+    clear:left;
+    background: var(--main-background-color);
+    /*background:gold;*/ /* for debugging dragbar */
+    height:100%;
+    border-right: solid var(--dragbar-color) 1px;
+}
+#left_sidekick_content {
+    position:absolute;
+    overflow:auto;
+    height:100%;
+    width:100%;
+}
+#sidekick_filebrowser_content {
+    position:absolute;
+    overflow:auto;
+    height:100%;
+    width:100%;
+}
+
+/* CONTENT - MIDDLE */
+#middle_container {
+    top:0;
+    position:absolute;
+    background:greenyellow; /* for debugging only */
+    height:100%;
+}
+#editor {
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    width:300px;
+    height:300px;
+}
+#test_editor {
+    position:absolute;
+    top:200px;
+    left:300px;
+    bottom:0;
+    right:0;
+    width:200px;
+    height:400px;
+}
+
+/* OUTPUT */
+#footer_container {
+    position:absolute;
+    bottom:0;
+    left:0;
+    width: 100%;
+    height: 50px;
+    clear: both;
+    /*background:red; */ /* for debugging dragbar */
+    background: var(--footer-background-color);
+    border-top: solid var(--dragbar-color) 1px;
+    overflow: scroll;
+}
+
+.output_szs_status {
+    color: var(--footer-szs-status-color);
+}
+
+/* DRAGBAR */
+.dragbar_vertical {
+    position:absolute;
+    top:0;
+    left:0;
+    cursor: col-resize;
+    z-index:5;
+    width:9px;
+    height:100%;
+    background: purple; /* for debugging only */
+    opacity: 0;
+}
+.dragbar_horizontal {
+    position:absolute;
+    top:0;
+    left:0;
+    cursor: row-resize;
+    z-index:5;
+    width:100%;
+    height:9px;
+    background: purple; /* for debugging only */
+    opacity: 0;
+}
+
+/* MODALS - GENERAL*/
+.modal_container {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: var(--modal-container-background-color-fallback); /* Fallback color */
+    background-color: var(--modal-container-background-color);
+}
+.modal_innerwindow {
+    background-color: var(--modal-background-color);
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 5px;
+    width: 90%; /* Could be more or less, depending on screen size */
+    /*height: 90%; */ /* TODO */
+    overflow: auto;
+}
+
+/* SHRINKED MODALS - GENERAL*/
+.shrinked_modal_container {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: var(--modal-container-background-color-fallback); /* Fallback color */
+    background-color: var(--modal-container-background-color);
+}
+.shrinked_modal_innerwindow {
+    background-color: var(--modal-background-color);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: auto;
+}
+.shrinked_modal_header {
+
+}
+.shrinked_modal_heading {
+    background-color: var(--title-background-color);
+    color: var(--title-font-color);
+    padding: 2px;
+}
+.shrinked_modal_content {
+    padding: 5px;
+}
+.shrinked_modal_footer {
+    padding: 5px;
+}
